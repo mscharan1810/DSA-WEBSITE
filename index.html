@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>33-Day DSA Pattern Mastery (Java) | Sep 18 – Oct 20</title>
+  <meta name="description" content="Structured 33-Day DSA roadmap tracker in Java. Master pattern recognition, problem solving progression, and core algorithms from beginner to medium.">
+
+  <!-- Google Fonts: Outfit, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Canvas for celebration confetti -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Sticky Site Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <div class="brand-wrapper">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>DSA Pattern Mastery <span class="badge">33 Days</span></h1>
+          <p>Beginner → Easy → Easy-Medium → Medium (Java)</p>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <button id="btn-theme-toggle" class="nav-btn" title="Toggle Light / Dark Mode">
+          <svg id="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg id="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <span id="theme-text">Dark Mode</span>
+        </button>
+
+        <button id="btn-open-rules" class="nav-btn" title="7-Step Solving Rule & 3-Hour Routine">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          7-Step Rule
+        </button>
+
+        <button id="btn-open-patterns" class="nav-btn primary" title="Complete Pattern Clue Map">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+          Pattern Map
+        </button>
+
+        <button id="btn-open-toolkit" class="nav-btn" title="Java DSA Syntax Cheatsheet">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          Java Toolkit
+        </button>
+
+        <button id="btn-open-cloud-sync" class="nav-btn cloud-sync-btn" title="Free Cloud Sync & Cross-Device Access">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+          </svg>
+          Cloud Sync
+        </button>
+
+        <button id="btn-open-data" class="nav-btn" title="Backup / Restore / Reset">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Data
+        </button>
+
+        <div class="save-status-pill local" id="save-status-indicator" title="Click to manage Free Cloud Sync & Cross-Device Access">
+          <span class="save-dot"></span>
+          <span id="save-status-text">Local Storage</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-container">
+
+    <!-- Hero & Progress Dashboard -->
+    <section class="hero-dashboard">
+      <!-- Overall Progress Card -->
+      <div class="metric-card">
+        <div class="progress-banner">
+          <div class="progress-ring-container">
+            <svg class="progress-ring">
+              <circle
+                class="progress-ring__circle-bg"
+                stroke="rgba(255, 255, 255, 0.08)"
+                stroke-width="10"
+                fill="transparent"
+                r="54"
+                cx="65"
+                cy="65"
+              />
+              <circle
+                id="progress-circle"
+                class="progress-ring__circle"
+                stroke="url(#accentGradient)"
+                stroke-width="10"
+                fill="transparent"
+                r="54"
+                cx="65"
+                cy="65"
+              />
+              <defs>
+                <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6366f1" />
+                  <stop offset="100%" stop-color="#10b981" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="progress-ring-text">
+              <span id="overall-percentage" class="percent">0%</span>
+              <span class="label">Solved</span>
+            </div>
+          </div>
+
+          <div class="progress-info">
+            <h2>Your Roadmap Progress</h2>
+            <p>Target: <strong>~120-135 curated problems</strong> across 33 days with strict pattern mastery.</p>
+
+            <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));">
+              <div class="stat-box">
+                <div id="stat-total" class="count">0 / 0</div>
+                <div class="title">Total Solved</div>
+              </div>
+              <div class="stat-box" title="Current Daily Streak">
+                <div id="stat-streak" class="count" style="color: #f59e0b;">🔥 0</div>
+                <div class="title">Streak</div>
+              </div>
+              <div class="stat-box">
+                <div id="stat-today" class="count" style="color: #6366f1;">0</div>
+                <div class="title">Today</div>
+              </div>
+              <div class="stat-box">
+                <div id="stat-very-easy" class="count" style="color: #10b981;">0</div>
+                <div class="title">Very Easy</div>
+              </div>
+              <div class="stat-box">
+                <div id="stat-easy" class="count" style="color: #059669;">0</div>
+                <div class="title">Easy</div>
+              </div>
+              <div class="stat-box">
+                <div id="stat-medium" class="count" style="color: #d97706;">0</div>
+                <div class="title">Medium</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline & Mindset Card -->
+      <div class="metric-card timeline-card">
+        <div>
+          <div class="timeline-header">
+            <h3>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              33-Day Sprint Timeline
+            </h3>
+            <span id="timeline-badge" class="date-badge">Day 1 of 33</span>
+          </div>
+
+          <div class="timeline-bar-wrapper">
+            <div class="timeline-bar-labels">
+              <span>Sep 18 (Foundation)</span>
+              <span>Oct 5 (~60 Solved)</span>
+              <span>Oct 20 (Target)</span>
+            </div>
+            <div class="timeline-progress-track">
+              <div id="timeline-progress-fill" class="timeline-progress-fill" style="width: 3.03%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-tips">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+          </svg>
+          <div>
+            <strong>Golden Rule:</strong> Stop random LeetCode. Daily: Concept (45m) → Problems (90m) → Re-code from memory (30m) → Pattern Notes (15m).
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LeetCode-Style Submission Calendar & Daily Streak Widget -->
+    <section id="submission-calendar-section" class="metric-card calendar-card">
+      <div class="calendar-header">
+        <div class="calendar-title-group">
+          <h3>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fire-icon">
+              <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3.5z"></path>
+            </svg>
+            Submission Calendar
+          </h3>
+          <span class="calendar-subtitle">Daily activity & problem solving streak map</span>
+        </div>
+
+        <div class="calendar-header-right">
+          <div class="streak-pill current">
+            <span class="fire-emoji">🔥</span>
+            <span>Current Streak:</span>
+            <strong id="streak-current-count">0 Days</strong>
+          </div>
+          <div class="streak-pill max">
+            <span class="lightning-emoji">⚡</span>
+            <span>Max Streak:</span>
+            <strong id="streak-max-count">0 Days</strong>
+          </div>
+          <div class="month-nav">
+            <button id="btn-prev-month" class="month-nav-btn" title="Previous Month">‹</button>
+            <span id="calendar-month-label" class="month-label">September 2026</span>
+            <button id="btn-next-month" class="month-nav-btn" title="Next Month">›</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="calendar-body">
+        <div class="calendar-weekdays">
+          <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+        </div>
+        <div id="calendar-days-grid" class="calendar-days-grid">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <div class="calendar-footer">
+        <div class="calendar-footer-info">
+          <span>Total active practice days: <strong id="calendar-active-days-count">0</strong></span>
+        </div>
+        <div class="calendar-legend">
+          <span class="legend-label">Less</span>
+          <span class="legend-box level-0" title="0 submissions"></span>
+          <span class="legend-box level-1" title="1 submission"></span>
+          <span class="legend-box level-2" title="2 submissions"></span>
+          <span class="legend-box level-3" title="3-4 submissions"></span>
+          <span class="legend-box level-4" title="5+ submissions"></span>
+          <span class="legend-label">More</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Continue Learning Command Center -->
+    <section id="continue-learning-section" class="continue-card">
+      <div class="continue-header">
+        <div class="continue-tag">
+          <span class="live-dot"></span>
+          <span>CONTINUE LEARNING TARGET</span>
+        </div>
+        <div id="continue-last-solved" class="continue-last-solved">
+          Last Solved: None yet
+        </div>
+      </div>
+
+      <div class="continue-body">
+        <div class="continue-info">
+          <div id="continue-phase-badge" class="continue-phase-badge">Phase 0: Foundation</div>
+          <h3 id="continue-problem-title">Print Array Elements & Format</h3>
+          <div class="continue-meta">
+            <span id="continue-diff-badge" class="badge-difficulty very-easy">Very Easy</span>
+            <span id="continue-topic-badge" class="badge-topic">Foundation</span>
+            <span id="continue-pattern-badge" class="badge-pattern">Linear Traversal</span>
+          </div>
+        </div>
+
+        <div class="continue-actions">
+          <a id="continue-solve-btn" href="#" target="_blank" rel="noopener noreferrer" class="nav-btn primary" title="Open problem link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            Solve Problem
+          </a>
+          <button id="continue-mark-done-btn" class="nav-btn" style="background: rgba(16, 185, 129, 0.12); color: #059669; border-color: rgba(16, 185, 129, 0.3);" title="Mark this problem as solved and advance to next">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Mark as Solved
+          </button>
+          <button id="continue-jump-btn" class="nav-btn" title="Scroll down and highlight this problem in the list">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+            Locate in List
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toolbar: Search, Status, and Multi-Level Filters -->
+    <section class="controls-card">
+      <div class="search-and-status">
+        <div class="search-box">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="search-input" placeholder="Search problems, patterns, or clues (e.g. 'Two Sum', 'Sliding Window', 'Stack')...">
+          <button id="search-clear-btn" class="search-clear" title="Clear search">✕</button>
+        </div>
+
+        <div class="status-pills">
+          <button class="status-pill active" data-status="all">All</button>
+          <button class="status-pill" data-status="pending">Pending</button>
+          <button class="status-pill" data-status="completed">Completed</button>
+          <button class="status-pill" data-status="starred">★ Starred</button>
+        </div>
+      </div>
+
+      <div class="filter-dropdowns">
+        <!-- Phase Filter -->
+        <div class="select-group">
+          <label for="filter-phase">Phase:</label>
+          <select id="filter-phase" class="custom-select">
+            <option value="all">All Phases (0 to 17)</option>
+            <option value="0">Phase 0: Foundation & Math (Day 1–5)</option>
+            <option value="1">Phase 1: Arrays & Matrix (Days 2–5)</option>
+            <option value="2">Phase 2: Strings & Hashing (Days 6–8)</option>
+            <option value="3">Phase 3: Two Pointers (Days 9–11)</option>
+            <option value="4">Phase 4: Sorting & Binary Search (Days 12–14)</option>
+            <option value="5">Phase 5: Prefix Sum (Days 14–15)</option>
+            <option value="6">Phase 6: Sliding Window (Days 15–18)</option>
+            <option value="7">Phase 7: Linked List (Days 19–21)</option>
+            <option value="8">Phase 8: Stack & Queue (Days 22–24)</option>
+            <option value="9">Phase 9: Recursion (Day 25)</option>
+            <option value="10">Phase 10: Backtracking (Day 26)</option>
+            <option value="11">Phase 11: Binary Tree (Day 27)</option>
+            <option value="12">Phase 12: BST (Day 28)</option>
+            <option value="13">Phase 13: Heap / PriorityQueue (Day 29)</option>
+            <option value="14">Phase 14: Greedy (Day 30)</option>
+            <option value="15">Phase 15: Graph (Day 31)</option>
+            <option value="16">Phase 16: DP (Day 32)</option>
+            <option value="17">Phase 17: Final Revision Sprint (Day 33)</option>
+          </select>
+        </div>
+
+        <!-- Topic Filter -->
+        <div class="select-group">
+          <label for="filter-topic">Topic:</label>
+          <select id="filter-topic" class="custom-select">
+            <option value="all">All Topics</option>
+            <option value="Arrays">Arrays</option>
+            <option value="Matrix">Matrix</option>
+            <option value="Strings">Strings</option>
+            <option value="Hashing">Hashing</option>
+            <option value="Two Pointers">Two Pointers</option>
+            <option value="Sorting">Sorting</option>
+            <option value="Binary Search">Binary Search</option>
+            <option value="Prefix Sum">Prefix Sum</option>
+            <option value="Sliding Window">Sliding Window</option>
+            <option value="Linked List">Linked List</option>
+            <option value="Stack">Stack</option>
+            <option value="Queue">Queue</option>
+            <option value="Recursion">Recursion</option>
+            <option value="Backtracking">Backtracking</option>
+            <option value="Binary Tree">Binary Tree</option>
+            <option value="BST">BST</option>
+            <option value="Heap">Heap</option>
+            <option value="Greedy">Greedy</option>
+            <option value="Graph">Graph</option>
+            <option value="DP">DP</option>
+            <option value="Bit Manipulation">Bit Manipulation</option>
+            <option value="Math">Math</option>
+            <option value="Foundation">Foundation</option>
+          </select>
+        </div>
+
+        <!-- Difficulty Filter -->
+        <div class="select-group">
+          <label for="filter-difficulty">Difficulty:</label>
+          <select id="filter-difficulty" class="custom-select">
+            <option value="all">All Difficulties</option>
+            <option value="Very Easy">Very Easy</option>
+            <option value="Easy">Easy</option>
+            <option value="Easy-Medium">Easy-Medium</option>
+            <option value="Medium">Medium</option>
+          </select>
+        </div>
+
+        <!-- Platform Filter -->
+        <div class="select-group">
+          <label for="filter-platform">Platform:</label>
+          <select id="filter-platform" class="custom-select">
+            <option value="all">All Platforms</option>
+            <option value="LeetCode">LeetCode</option>
+            <option value="GFG">GeeksforGeeks</option>
+            <option value="Core Logic">Core / Logic</option>
+          </select>
+        </div>
+
+        <!-- Reset Filters Button -->
+        <button id="btn-reset-filters" class="reset-filters-btn" title="Reset all filters">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+            <path d="M3 3v5h5"></path>
+          </svg>
+          Reset Filters
+        </button>
+      </div>
+    </section>
+
+    <!-- Results Count & View Toggle -->
+    <div class="results-header">
+      <div id="results-count" class="results-count">
+        Showing <strong>0</strong> problems
+      </div>
+      <div class="view-toggle">
+        <button id="view-grouped-btn" class="toggle-btn active" title="Group by Phase">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Phases
+        </button>
+        <button id="view-flat-btn" class="toggle-btn" title="Flat List View">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="8" y1="6" x2="21" y2="6"></line>
+            <line x1="8" y1="12" x2="21" y2="12"></line>
+            <line x1="8" y1="18" x2="21" y2="18"></line>
+            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+          </svg>
+          Flat List
+        </button>
+      </div>
+    </div>
+
+    <!-- Problem Container (Populated dynamically) -->
+    <div id="problems-container"></div>
+
+  </main>
+
+  <!-- =========================================================================
+       MODAL 1: Cheatsheet, 7-Step Rules & Daily Routine
+       ========================================================================= -->
+  <div id="modal-guides" class="modal-backdrop">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-guides-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+          Pattern Recognition & Problem Solving Engine
+        </h3>
+        <button class="modal-close" data-close-modal="modal-guides">✕</button>
+      </div>
+
+      <div class="modal-tabs">
+        <button class="modal-tab-btn active" data-tab="tab-patterns">Pattern Clue Map</button>
+        <button class="modal-tab-btn" data-tab="tab-rules">7-Step Rule & 3-Hour Routine</button>
+        <button class="modal-tab-btn" data-tab="tab-toolkit">Java DSA Toolkit</button>
+        <button class="modal-tab-btn" data-tab="tab-stuck">"Stuck" Mindset Protocol</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Tab 1: Pattern Clues -->
+        <div id="tab-patterns" class="modal-tab-pane">
+          <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">
+            When reading any problem, ask: <em>"Which clue matches?"</em> Use this lookup table before writing any code:
+          </p>
+          <div class="pattern-table-container">
+            <table class="pattern-table">
+              <thead>
+                <tr>
+                  <th>Question Clue</th>
+                  <th>Pattern to Apply</th>
+                  <th>Time Complexity</th>
+                  <th>Space</th>
+                </tr>
+              </thead>
+              <tbody id="pattern-map-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab 2: 7-Step Rule & 3-Hour Routine -->
+        <div id="tab-rules" class="modal-tab-pane" style="display: none;">
+          <h4 style="margin-bottom: 14px; font-size: 1.05rem;">The 7-Step Problem Solving Rule</h4>
+          <div id="rules-list-container"></div>
+
+          <h4 style="margin: 24px 0 14px; font-size: 1.05rem;">The 3-Hour Daily Routine</h4>
+          <div id="routine-list-container"></div>
+        </div>
+
+        <!-- Tab 3: Java DSA Toolkit -->
+        <div id="tab-toolkit" class="modal-tab-pane" style="display: none;">
+          <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 14px;">
+            Standard library patterns in Java. Click "Copy" to quickly reference or paste into your IDE.
+          </p>
+          <div id="toolkit-snippets-container"></div>
+        </div>
+
+        <!-- Tab 4: "Stuck" Mindset Protocol -->
+        <div id="tab-stuck" class="modal-tab-pane" style="display: none;">
+          <h4 style="margin-bottom: 14px; font-size: 1.05rem;">When "Idea Raavatledu" (Can't Think of Solution)</h4>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 14px;">
+            Never jump straight to copying a full solution. Follow this graduated protocol:
+          </p>
+          <div id="stuck-rules-container"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 2: Problem Pattern Notebook / Notes
+       ========================================================================= -->
+  <div id="modal-notes" class="modal-backdrop">
+    <div class="modal-content" style="max-width: 600px;">
+      <div class="modal-header">
+        <h3>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20h9"></path>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+          </svg>
+          Pattern Notebook: <span id="note-modal-title" style="color: #818cf8;">Problem</span>
+        </h3>
+        <button class="modal-close" data-close-modal="modal-notes">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="note-form" class="notes-form">
+          <input type="hidden" id="note-problem-id" value="">
+
+          <div class="note-field">
+            <label for="note-content">Notes</label>
+            <textarea id="note-content" placeholder="Write your notes, pattern clues, approach, edge cases, or complexity here..." rows="8"></textarea>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="nav-btn" data-close-modal="modal-notes">Cancel</button>
+        <button type="button" id="btn-save-note" class="nav-btn primary">Save Notes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 3: Data Management (Backup / Restore / Reset)
+       ========================================================================= -->
+  <div id="modal-data" class="modal-backdrop">
+    <div class="modal-content" style="max-width: 520px;">
+      <div class="modal-header">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Data Management
+        </h3>
+        <button class="modal-close" data-close-modal="modal-data">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: var(--radius-sm); padding: 14px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+          <div>
+            <div style="font-weight: 600; color: var(--text-primary); font-size: 0.9rem; display: flex; align-items: center; gap: 6px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-primary);">
+                <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+              </svg>
+              Cross-Device Cloud Sync (Free)
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 3px;">
+              Sync all your completed problems, bookmarks, and notes to your mobile phone or another computer.
+            </div>
+          </div>
+          <button type="button" id="btn-jump-to-cloud-sync" class="nav-btn primary" style="font-size: 0.82rem; padding: 7px 14px; white-space: nowrap;">
+            Open Cloud Sync
+          </button>
+        </div>
+
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px;">
+          All your completions, bookmarks, and notes are also automatically saved offline to your browser's <code>localStorage</code>.
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <button id="btn-export-data" class="nav-btn" style="justify-content: center; padding: 10px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            Export Progress to JSON File
+          </button>
+
+          <label class="nav-btn" style="justify-content: center; padding: 10px; cursor: pointer;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Import Progress from JSON File
+            <input type="file" id="import-file-input" accept=".json" style="display: none;">
+          </label>
+
+          <hr style="border: none; border-top: 1px solid var(--border-subtle); margin: 6px 0;">
+
+          <button id="btn-reset-all" class="nav-btn" style="justify-content: center; color: var(--danger); border-color: rgba(239, 68, 68, 0.3); padding: 10px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            </svg>
+            Reset All Progress & Notes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 4: Free Cloud Sync & Cross-Device Access
+       ========================================================================= -->
+  <div id="modal-cloud-sync" class="modal-backdrop">
+    <div class="modal-content" style="max-width: 680px;">
+      <div class="modal-header">
+        <h3>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-primary);">
+            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+          </svg>
+          Free Cloud Sync & Cross-Device Access
+        </h3>
+        <button class="modal-close" data-close-modal="modal-cloud-sync">✕</button>
+      </div>
+
+      <!-- Navigation Tabs inside Cloud Sync Modal -->
+      <div class="modal-tabs">
+        <button class="modal-tab-btn active" data-sync-tab="tab-sync-main">Cloud Sync & Mobile</button>
+        <button class="modal-tab-btn" data-sync-tab="tab-sync-hosting">Free Hosting Guide</button>
+        <button class="modal-tab-btn" data-sync-tab="tab-sync-advanced">Firebase Security Rules</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- TAB 1: Main Sync & Mobile Access -->
+        <div id="tab-sync-main" class="sync-tab-pane">
+          <div class="cloud-sync-grid">
+
+            <!-- Sync Connection Box -->
+            <div class="sync-card">
+              <!-- 1. Database Connection Section -->
+              <div class="sync-db-config-box">
+                <div class="sync-db-config-header">
+                  <div class="sync-db-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #f59e0b;">
+                      <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                    </svg>
+                    <span>1. Connect Your Google Firebase Database</span>
+                  </div>
+                  <span id="firebase-status-badge" class="sync-status-badge disconnected">Not Linked</span>
+                </div>
+                <p class="sync-helper-text" style="margin: 4px 0 10px 0;">
+                  Cross-device sync uses Google Firebase Realtime Database (100% free forever, no credit card). Paste your database URL below:
+                </p>
+                <div class="sync-input-group">
+                  <input type="text" id="input-custom-firebase-url" class="sync-key-input" placeholder="https://your-project-default-rtdb.firebaseio.com" spellcheck="false" autocomplete="off" />
+                  <button type="button" id="btn-save-custom-firebase" class="nav-btn primary" style="padding: 10px 18px; font-weight: 600; white-space: nowrap;">
+                    🧪 Test & Connect
+                  </button>
+                  <button type="button" id="btn-reset-custom-firebase" class="nav-btn" style="color: var(--text-muted); display: none;" title="Disconnect database URL">
+                    Clear
+                  </button>
+                </div>
+                <div id="firebase-test-feedback" class="firebase-test-feedback" style="display: none;"></div>
+
+                <details class="sync-quick-guide">
+                  <summary>⚡ View 60-Second Free Setup Guide (Click to expand)</summary>
+                  <div class="guide-steps-list">
+                    <div class="guide-step-item">
+                      <span class="step-badge">1</span>
+                      <span>Go to <a href="https://console.firebase.google.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); font-weight: 600;">console.firebase.google.com</a> and click <strong>Create a project</strong> (name it anything, e.g. <code>my-dsa</code>).</span>
+                    </div>
+                    <div class="guide-step-item">
+                      <span class="step-badge">2</span>
+                      <span>In the left sidebar, click <strong>Databases and storage → Realtime Database → Create Database</strong>.</span>
+                    </div>
+                    <div class="guide-step-item">
+                      <span class="step-badge">3</span>
+                      <span>Choose <strong>Start in Test Mode</strong> (enables read & write permissions).</span>
+                    </div>
+                    <div class="guide-step-item">
+                      <span class="step-badge">4</span>
+                      <span>Copy your URL (e.g. <code>https://my-dsa-default-rtdb.firebaseio.com/</code>), paste it above, and click <strong>Test & Connect</strong>!</span>
+                    </div>
+                  </div>
+                </details>
+              </div>
+
+              <div class="sync-divider-line"></div>
+
+              <!-- 2. Passphrase / Key Section -->
+              <div class="sync-card-header">
+                <div class="sync-card-title">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                  2. Your Personal Sync Passphrase
+                </div>
+                <span id="cloud-status-badge" class="sync-status-badge disconnected">Local Only</span>
+              </div>
+
+              <p class="sync-helper-text">
+                Enter any personal secret code (e.g. <code>my-dsa-sheet-2026</code>) or click <strong>🎲 Generate</strong>. Type this same code on your phone or any computer to sync all your completed problems automatically!
+              </p>
+
+              <div class="sync-input-group">
+                <input type="text" id="input-sync-key" class="sync-key-input" placeholder="e.g. chara-dsa-master" spellcheck="false" autocomplete="off" />
+                <button type="button" id="btn-generate-sync-key" class="nav-btn" title="Generate a random secure sync key">
+                  🎲 Generate
+                </button>
+                <button type="button" id="btn-connect-sync" class="nav-btn primary" style="padding: 10px 18px; font-weight: 600;">
+                  Connect & Sync
+                </button>
+              </div>
+
+              <!-- Live Synced Stats -->
+              <div class="sync-stats-row">
+                <div class="sync-stat-item">
+                  <span class="sync-stat-label">Cloud Status</span>
+                  <span id="sync-stat-status" class="sync-stat-value" style="color: var(--text-secondary);">Database Not Configured</span>
+                </div>
+                <div class="sync-stat-item">
+                  <span class="sync-stat-label">Last Cloud Sync</span>
+                  <span id="sync-stat-time" class="sync-stat-value">—</span>
+                </div>
+                <div class="sync-stat-item">
+                  <span class="sync-stat-label">Active Sync Key</span>
+                  <span id="sync-stat-key" class="sync-stat-value" style="color: var(--accent-primary);">None</span>
+                </div>
+              </div>
+
+              <div id="sync-connected-actions" style="display: none; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-top: 4px;">
+                <button type="button" id="btn-force-sync" class="nav-btn" style="color: #10b981; border-color: rgba(16, 185, 129, 0.3);">
+                  🔄 Sync Now (Push & Pull)
+                </button>
+                <button type="button" id="btn-disconnect-sync" class="nav-btn" style="color: var(--danger); border-color: rgba(239, 68, 68, 0.3);">
+                  Disconnect Sync
+                </button>
+              </div>
+            </div>
+
+            <!-- Mobile Quick Access & QR Code Box -->
+            <div class="sync-card" id="card-mobile-access">
+              <div class="sync-card-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                  <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                </svg>
+                Instant Mobile Phone Access
+              </div>
+
+              <div class="qr-share-container">
+                <div class="qr-code-box" id="qr-code-container" title="Scan with phone camera">
+                  <!-- SVG QR Code will render here -->
+                </div>
+                <div class="qr-details">
+                  <p class="sync-helper-text" style="margin: 0;">
+                    <strong>Point your smartphone camera</strong> at this QR code to instantly open the tracker with your sync key and database connected!
+                  </p>
+                  <div class="share-link-input-group">
+                    <input type="text" id="input-share-link" class="share-link-input" readonly />
+                    <button type="button" id="btn-copy-share-link" class="nav-btn" title="Copy shareable link">
+                      📋 Copy Link
+                    </button>
+                  </div>
+                  <span class="sync-helper-text" style="font-size: 0.76rem; color: var(--text-muted);">
+                    Opening this link on any phone or browser immediately loads and auto-syncs your completed problems.
+                  </span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- TAB 2: Free Hosting Guide -->
+        <div id="tab-sync-hosting" class="sync-tab-pane" style="display: none;">
+          <p class="sync-helper-text" style="margin-bottom: 16px;">
+            To access this DSA tracker from outside your home on any mobile phone or device, host it for <strong>100% free forever</strong> using any of these 3 methods:
+          </p>
+
+          <div class="hosting-guide-grid">
+            <div class="guide-step-card">
+              <span class="guide-badge">Method 1 • Recommended</span>
+              <h5>GitHub Pages (Free Forever)</h5>
+              <p>1. Create a free repository on GitHub.</p>
+              <p>2. Upload your 4 files: <code>index.html</code>, <code>app.js</code>, <code>data.js</code>, <code>styles.css</code>.</p>
+              <p>3. Go to <strong>Settings → Pages → Source: Deploy from branch (main)</strong>.</p>
+              <p>Your live global URL will be: <code class="code-snippet-small">https://username.github.io/repo-name/</code></p>
+            </div>
+
+            <div class="guide-step-card">
+              <span class="guide-badge">Method 2 • 30-Sec Drag & Drop</span>
+              <h5>Vercel or Netlify (Free)</h5>
+              <p>1. Go to <strong>vercel.com</strong> or <strong>netlify.com</strong> (Free tier, no card required).</p>
+              <p>2. Drag and drop this DSA folder directly into the browser dashboard.</p>
+              <p>3. You immediately get a live HTTPS URL accessible anywhere in the world.</p>
+            </div>
+
+            <div class="guide-step-card">
+              <span class="guide-badge">Method 3 • Home Wi-Fi</span>
+              <h5>Local Phone Access</h5>
+              <p>If your phone is connected to the same Wi-Fi as your PC:</p>
+              <p>1. Run a quick server: <code class="code-snippet-small">python -m http.server 8000</code></p>
+              <p>2. Open on phone browser: <code class="code-snippet-small">http://YOUR-PC-IP:8000</code></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: Firebase Rules & Security -->
+        <div id="tab-sync-advanced" class="sync-tab-pane" style="display: none;">
+          <div class="sync-card">
+            <div class="sync-card-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              Firebase Realtime Database Rules
+            </div>
+            <p class="sync-helper-text">
+              To allow your phone and PC to sync without requiring user logins, your Firebase Realtime Database should be set to <strong>Test Mode</strong> or have public read/write rules:
+            </p>
+            <div class="snippet-card">
+              <div class="snippet-header">
+                <span>Firebase Console → Realtime Database → Rules</span>
+              </div>
+              <pre><code>{
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}</code></pre>
+            </div>
+            <p class="sync-helper-text" style="margin-top: 10px;">
+              💡 <em>Tip: Because all sync operations are partitioned by your personal passphrase (e.g. <code>heap-coder-305</code>), only devices with your exact passphrase can view or update your data.</em>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Submission Calendar Hover Tooltip (LeetCode Style) -->
+  <div id="calendar-tooltip" class="calendar-tooltip"></div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
